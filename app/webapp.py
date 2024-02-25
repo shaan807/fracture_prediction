@@ -5,12 +5,17 @@ import streamlit as st
 import onnxruntime as ort
 from matplotlib.colors import TABLEAU_COLORS 
 from pathlib import Path
+import matplotlib
+matplotlib.use('Agg')
 
 
 ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg", "gif"}
 parent_root = Path(__file__).parent.parent.absolute().__str__() # os.path.dirname(os.path.abspath(__file__))
 h, w = 640, 640
-model_onnx_path = os.path.join(parent_root, "yolov7-p6-bonefracture.onnx")
+#model_onnx_path = os.path.join(parent_root, "yolov7-p6-bonefracture.onnx")
+# Corrected path to the ONNX model file
+model_onnx_path = "/workspaces/YOLOv7-Bone-Fracture-Detection/yolov7/yolov7-p6-bonefracture.onnx"
+
 device = "cuda"
 
 def color_list():
